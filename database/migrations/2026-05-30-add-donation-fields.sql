@@ -1,0 +1,2 @@
+﻿-- Deprecated: donation columns are included in ../../supabase/eulogies.sql.
+-- Run the Supabase schema file in the Supabase SQL Editor instead.

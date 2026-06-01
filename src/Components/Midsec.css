@@ -1,0 +1,113 @@
+.mid {
+  background-color: #2a4a3d;
+  min-height: 0;
+  overflow: visible;
+  padding: clamp(28px, 5vw, 48px) clamp(18px, 6vw, 72px);
+  width: 100%;
+}
+
+.topic {
+  align-items: center;
+  color: white;
+  display: flex;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: bold;
+  justify-content: center;
+  margin-bottom: clamp(22px, 4vw, 36px);
+  text-align: center;
+  width: 100%;
+}
+
+.topic p {
+  margin: 0;
+}
+
+.raw {
+  display: grid;
+  gap: clamp(20px, 4vw, 38px);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin: 0 auto;
+  max-width: 1120px;
+  width: 100%;
+}
+
+.icons {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+}
+
+.icons img {
+  margin: 0 0 12px;
+  width: clamp(42px, 7vw, 72px);
+  scale: 2;
+}
+
+.icons h4 {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0 0 8px;
+}
+
+.icons p {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 240px;
+}
+
+@media (max-width: 520px) {
+  .mid {
+    padding: 30px 20px;
+  }
+
+  .raw {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mid {
+  padding: clamp(18px, 3vw, 30px) clamp(16px, 4vw, 46px);
+}
+
+.topic {
+  margin-bottom: clamp(14px, 2.4vw, 22px);
+}
+
+.raw {
+  gap: clamp(14px, 2.8vw, 28px);
+}
+
+.icons img {
+  margin-bottom: 8px;
+  width: clamp(36px, 5vw, 58px);
+}
+
+.icons h4 {
+  margin-bottom: 5px;
+}
+
+.icons p {
+  line-height: 1.42;
+}
+
+@media (max-width: 520px) {
+  .mid {
+    padding: 22px 18px;
+  }
+}
+
+.mid {
+  padding: clamp(14px, 2.4vw, 24px) clamp(14px, 3.4vw, 38px);
+}
+
+@media (max-width: 520px) {
+  .mid {
+    padding: 18px 16px;
+  }
+}

@@ -1,0 +1,2 @@
+﻿-- Deprecated: this project now uses Supabase.
+-- Run ../supabase/eulogies.sql in the Supabase SQL Editor instead.

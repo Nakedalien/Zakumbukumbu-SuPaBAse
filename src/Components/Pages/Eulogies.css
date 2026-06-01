@@ -1,0 +1,2513 @@
+.eulogies-page,
+.eulogy-detail,
+.create-page {
+  min-height: 74vh;
+  background: #f8f3ea;
+  color: #1f2f28;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 56px 7vw 72px;
+}
+
+.eulogies-hero,
+.create-intro,
+.detail-layout {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.eulogies-hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: end;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(46, 74, 61, 0.18);
+}
+
+.section-kicker {
+  color: #b28a58;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+.eulogies-hero h1,
+.create-intro h1,
+.detail-copy h1,
+.detail-empty h1 {
+  margin: 10px 0;
+  color: #2e4a3d;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.02;
+}
+
+.eulogies-hero p,
+.create-intro p,
+.summary-line {
+  max-width: 620px;
+  line-height: 1.7;
+}
+
+.primary-link,
+.eulogy-form button,
+.back-link {
+  border: 0;
+  border-radius: 6px;
+  background: #2e4a3d;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  min-height: 42px;
+  padding: 0 18px;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.primary-link:hover,
+.eulogy-form button:hover,
+.back-link:hover {
+  background: #b28a58;
+}
+
+.eulogies-toolbar {
+  max-width: 1120px;
+  margin: 28px auto;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eulogies-toolbar input,
+.eulogy-form input,
+.eulogy-form input[type="file"] {
+  background: #fbf7ef;
+  border-style: dashed;
+  cursor: pointer;
+}
+
+.file-note {
+  color: rgba(31, 47, 40, 0.66);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.photo-gallery {
+  border-top: 1px solid rgba(46, 74, 61, 0.14);
+  margin-top: 34px;
+  padding-top: 28px;
+}
+
+.photo-gallery h2 {
+  color: #2e4a3d;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.8rem;
+  margin: 0 0 18px;
+}
+
+.photo-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.gallery-photo {
+  aspect-ratio: 1;
+  background: #f3e8d6;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+}
+
+.gallery-photo img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.2s ease-in-out;
+  width: 100%;
+}
+
+.gallery-photo:hover img {
+  transform: scale(1.04);
+}
+
+.photo-lightbox {
+  align-items: center;
+  background: rgba(12, 18, 15, 0.9);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 28px;
+  position: fixed;
+  z-index: 20;
+}
+
+.photo-lightbox img {
+  border-radius: 8px;
+  max-height: 82vh;
+  max-width: min(100%, 1040px);
+  object-fit: contain;
+}
+
+.photo-lightbox button {
+  background: white;
+  border: 0;
+  border-radius: 6px;
+  color: #2e4a3d;
+  cursor: pointer;
+  font-weight: 800;
+  min-height: 38px;
+  padding: 0 16px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+}
+
+.eulogy-form textarea {
+  border: 1px solid rgba(46, 74, 61, 0.24);
+  border-radius: 6px;
+  color: #1f2f28;
+  font: inherit;
+  padding: 12px 14px;
+}
+
+.eulogies-toolbar input {
+  width: min(480px, 100%);
+}
+
+.eulogies-toolbar span,
+.page-note,
+.lifespan,
+.shared-by {
+  color: rgba(31, 47, 40, 0.7);
+}
+
+.eulogy-grid {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.eulogy-card {
+  display: grid;
+  grid-template-columns: minmax(190px, 300px) minmax(0, 1fr);
+  min-height: 220px;
+  background: white;
+  border: 1px solid rgba(46, 74, 61, 0.12);
+  border-radius: 8px;
+  color: inherit;
+  overflow: hidden;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+.eulogy-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(31, 47, 40, 0.14);
+}
+
+.eulogy-photo,
+.detail-photo {
+  background: linear-gradient(135deg, #2e4a3d, #b28a58);
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+
+.eulogy-photo {
+  aspect-ratio: auto;
+  height: 100%;
+  min-height: 220px;
+}
+
+.eulogy-photo span,
+.detail-photo span {
+  color: white;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 4rem;
+}
+
+.eulogy-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.eulogy-card-body span,
+.eulogy-card-body small {
+  color: #b28a58;
+  font-weight: 800;
+}
+
+.eulogy-card h2 {
+  color: #2e4a3d;
+  font-family: Georgia, 'Times New Roman', serif;
+  margin: 8px 0 10px;
+}
+
+.eulogy-card p {
+  line-height: 1.6;
+  margin: 0 0 16px;
+  max-width: 620px;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 360px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.detail-photo {
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;
+  position: sticky;
+  top: 24px;
+}
+
+.detail-copy {
+  background: white;
+  border-radius: 8px;
+  padding: 38px;
+}
+
+.story-body p {
+  color: #2b362f;
+  line-height: 1.85;
+  margin: 0 0 18px;
+  overflow-wrap: anywhere;
+}
+
+.back-link {
+  margin: 0 auto 24px;
+  max-width: max-content;
+}
+
+.create-intro {
+  margin-bottom: 28px;
+}
+
+.eulogy-form {
+  background: white;
+  border-radius: 8px;
+  display: grid;
+  gap: 18px;
+  margin: 0 auto;
+  max-width: 760px;
+  padding: 30px;
+}
+
+.eulogy-form label {
+  color: #2e4a3d;
+  display: grid;
+  font-weight: 800;
+  gap: 8px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.eulogy-form input[type="file"] {
+  background: #fbf7ef;
+  border-style: dashed;
+  cursor: pointer;
+}
+
+.file-note {
+  color: rgba(31, 47, 40, 0.66);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.photo-gallery {
+  border-top: 1px solid rgba(46, 74, 61, 0.14);
+  margin-top: 34px;
+  padding-top: 28px;
+}
+
+.photo-gallery h2 {
+  color: #2e4a3d;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.8rem;
+  margin: 0 0 18px;
+}
+
+.photo-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.gallery-photo {
+  aspect-ratio: 1;
+  background: #f3e8d6;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+}
+
+.gallery-photo img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.2s ease-in-out;
+  width: 100%;
+}
+
+.gallery-photo:hover img {
+  transform: scale(1.04);
+}
+
+.photo-lightbox {
+  align-items: center;
+  background: rgba(12, 18, 15, 0.9);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 28px;
+  position: fixed;
+  z-index: 20;
+}
+
+.photo-lightbox img {
+  border-radius: 8px;
+  max-height: 82vh;
+  max-width: min(100%, 1040px);
+  object-fit: contain;
+}
+
+.photo-lightbox button {
+  background: white;
+  border: 0;
+  border-radius: 6px;
+  color: #2e4a3d;
+  cursor: pointer;
+  font-weight: 800;
+  min-height: 38px;
+  padding: 0 16px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+}
+
+.eulogy-form textarea {
+  resize: vertical;
+}
+
+.eulogy-form button {
+  justify-self: start;
+  min-width: 170px;
+}
+
+.eulogy-form button:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+
+.form-error,
+.error-note {
+  color: #8a2d22;
+  font-weight: 700;
+}
+
+.detail-empty {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 780px) {
+  .eulogies-page,
+  .eulogy-detail,
+  .create-page {
+    padding: 36px 5vw 52px;
+  }
+
+  .eulogies-hero,
+  .eulogies-toolbar,
+  .detail-layout {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .detail-photo {
+    position: static;
+  }
+
+  .detail-copy,
+  .eulogy-form {
+    padding: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .eulogies-toolbar input {
+    width: 100%;
+  }
+
+  .eulogy-card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .eulogy-photo {
+    aspect-ratio: 16 / 10;
+    height: auto;
+    min-height: 0;
+  }
+}
+.selected-memorial {
+  background: #fbf7ef;
+  border: 1px solid rgba(46, 74, 61, 0.14);
+  border-radius: 8px;
+  display: grid;
+  gap: 4px;
+  padding: 16px;
+}
+
+.selected-memorial strong {
+  color: #2e4a3d;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.3rem;
+}
+
+.selected-memorial span,
+.selected-memorial small {
+  color: rgba(31, 47, 40, 0.68);
+  font-weight: 700;
+}
+
+.detail-header-actions {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.compact-link {
+  min-height: 36px;
+  padding: 0 14px;
+  white-space: nowrap;
+}
+
+.shared-eulogies {
+  border-top: 1px solid rgba(46, 74, 61, 0.14);
+  margin-top: 32px;
+  padding-top: 28px;
+}
+
+.shared-eulogies h2,
+.photo-gallery h2 {
+  color: #2e4a3d;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.8rem;
+  margin: 0 0 18px;
+}
+
+.eulogy-entry {
+  background: #fbf7ef;
+  border: 1px solid rgba(46, 74, 61, 0.12);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  padding: 20px;
+}
+
+.eulogy-entry > div:first-child {
+  align-items: baseline;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.eulogy-entry strong {
+  color: #2e4a3d;
+}
+
+.eulogy-entry span {
+  color: #b28a58;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+@media (max-width: 780px) {
+  .detail-header-actions,
+  .eulogy-entry > div:first-child {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+.eulogy-form input:not([type="file"]),
+.eulogy-form select,
+.eulogy-form textarea,
+.inline-eulogy-form input:not([type="file"]),
+.inline-eulogy-form textarea {
+  background: white;
+  border: 1px solid rgba(46, 74, 61, 0.24);
+  border-radius: 6px;
+  color: #1f2f28;
+  font: inherit;
+  padding: 12px 14px;
+}
+
+.inline-eulogy-form {
+  background: #fbf7ef;
+  border: 1px solid rgba(46, 74, 61, 0.14);
+  border-radius: 8px;
+  display: grid;
+  gap: 16px;
+  margin: 26px 0 8px;
+  padding: 22px;
+}
+
+.inline-eulogy-form label {
+  color: #2e4a3d;
+  display: grid;
+  font-weight: 800;
+  gap: 8px;
+}
+
+.inline-eulogy-form input[type="file"] {
+  background: white;
+  border: 1px dashed rgba(46, 74, 61, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 12px 14px;
+}
+
+.inline-eulogy-form textarea {
+  resize: vertical;
+}
+
+.inline-eulogy-form button[type="submit"] {
+  background: #2e4a3d;
+  border: 0;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-weight: 800;
+  justify-self: start;
+  min-height: 40px;
+  padding: 0 18px;
+}
+
+.inline-eulogy-form button[type="submit"]:hover:not(:disabled) {
+  background: #b28a58;
+}
+
+.inline-eulogy-form button[type="submit"]:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.sr-only {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.eulogies-page {
+  background: #000;
+  color: #f8f3ea;
+  overflow: hidden;
+  padding: clamp(44px, 6vw, 78px) clamp(18px, 6vw, 80px) 86px clamp(86px, 10vw, 126px);
+  position: relative;
+}
+
+.eulogies-page::before {
+  background-image: url("../../assets/beige.png");
+  background-position: top left;
+  background-repeat: repeat-y;
+  background-size: 76px auto;
+  bottom: 0;
+  content: "";
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 92px;
+  z-index: 0;
+}
+
+.eulogies-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.eulogies-page .eulogies-hero {
+  align-items: center;
+  border-bottom: 0;
+  display: grid;
+  gap: 0;
+  grid-template-columns: minmax(150px, 270px) minmax(0, 1fr);
+  margin: 0 auto 34px;
+  max-width: 1120px;
+  padding: 0;
+}
+
+.eulogies-flower {
+  justify-self: end;
+  margin-right: clamp(-68px, -5vw, -42px);
+  width: clamp(178px, 22vw, 280px);
+  z-index: 2;
+}
+
+.eulogies-flower img {
+  display: block;
+  width: 100%;
+}
+
+.eulogies-cta-strip {
+  align-items: center;
+  background: #f8efe2;
+  border-radius: 8px;
+  color: #1f2f28;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  min-height: 82px;
+  padding: 18px 28px 18px clamp(70px, 9vw, 126px);
+}
+
+.eulogies-cta-strip p {
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.eulogies-cta-strip p:first-child {
+  color: #b28a58;
+}
+
+.eulogies-page .primary-link {
+  background: #2e4a3d;
+  border-radius: 5px;
+}
+
+.eulogies-page .primary-link:hover {
+  background: #b28a58;
+}
+
+.eulogies-page .eulogies-toolbar {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin: 0 auto 40px;
+  max-width: 1120px;
+}
+
+.eulogies-page .eulogies-toolbar input {
+  background: #f8efe2;
+  border: 0;
+  border-radius: 999px;
+  color: #1f2f28;
+  cursor: text;
+  font: inherit;
+  min-height: 42px;
+  padding: 0 18px;
+  width: min(520px, 100%);
+}
+
+.eulogies-page .eulogies-toolbar span,
+.eulogies-page .page-note {
+  color: rgba(248, 243, 234, 0.78);
+  font-weight: 800;
+}
+
+.eulogy-list {
+  display: grid;
+  gap: clamp(34px, 6vw, 64px);
+  margin: 0 auto;
+  max-width: 1120px;
+}
+
+.eulogy-row {
+  align-items: center;
+  display: grid;
+  gap: clamp(18px, 3vw, 34px);
+  grid-template-columns: minmax(150px, 250px) minmax(0, 1fr);
+}
+
+.eulogies-page .eulogy-photo {
+  aspect-ratio: 1;
+  background: #f8efe2;
+  background-position: center;
+  background-size: cover;
+  border-radius: 0;
+  display: grid;
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+  place-items: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.eulogies-page .eulogy-photo span {
+  color: #2e4a3d;
+  font-size: clamp(3rem, 7vw, 5rem);
+}
+
+.eulogy-lines {
+  display: grid;
+  gap: clamp(12px, 2vw, 20px);
+  min-width: 0;
+}
+
+.eulogy-line {
+  align-items: center;
+  background: #2e4a3d;
+  border-radius: 999px;
+  color: #f8f3ea;
+  display: flex;
+  gap: 14px;
+  min-height: 36px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 8px 20px;
+  text-decoration: none;
+}
+
+.eulogy-title-line {
+  justify-content: space-between;
+}
+
+.eulogy-title-line strong,
+.eulogy-title-line span,
+.eulogy-meta-line span {
+  min-width: 0;
+}
+
+.eulogy-title-line strong {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+.eulogy-title-line span,
+.eulogy-meta-line span {
+  color: rgba(248, 243, 234, 0.82);
+  font-size: 0.94rem;
+  font-weight: 800;
+}
+
+.eulogy-summary-line {
+  line-height: 1.45;
+}
+
+.eulogy-meta-line {
+  justify-content: space-between;
+}
+
+.share-link-button {
+  align-items: center;
+  background: #f8efe2;
+  border: 0;
+  border-radius: 999px;
+  color: #1f2f28;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font: inherit;
+  font-weight: 800;
+  gap: 8px;
+  min-height: 32px;
+  padding: 0 14px;
+  transition: 0.2s ease-in-out;
+}
+
+.share-link-button:hover {
+  background: #b28a58;
+  color: white;
+}
+
+.share-link-button img {
+  height: 16px;
+  width: 16px;
+}
+
+@media (max-width: 780px) {
+  .eulogies-page {
+    padding: 36px 18px 58px 66px;
+  }
+
+  .eulogies-page::before {
+    background-size: 48px auto;
+    width: 56px;
+  }
+
+  .eulogies-page .eulogies-hero {
+    grid-template-columns: 1fr;
+    margin-bottom: 28px;
+  }
+
+  .eulogies-flower {
+    justify-self: center;
+    margin: 0 0 -50px;
+    width: min(190px, 62vw);
+  }
+
+  .eulogies-cta-strip {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 66px 20px 20px;
+  }
+
+  .eulogies-page .eulogies-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .eulogy-row {
+    grid-template-columns: minmax(118px, 150px) minmax(0, 1fr);
+  }
+
+  .eulogy-line {
+    border-radius: 4px;
+  }
+
+  .eulogy-title-line,
+  .eulogy-meta-line {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .eulogies-page {
+    padding-left: 58px;
+    padding-right: 14px;
+  }
+
+  .eulogies-page::before {
+    background-size: 40px auto;
+    width: 48px;
+  }
+
+  .eulogy-row {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+
+  .eulogies-page .eulogy-photo {
+    justify-self: start;
+    width: min(220px, 100%);
+  }
+}
+
+.detail-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.detail-share-button {
+  border: 1px solid rgba(46, 74, 61, 0.16);
+}
+
+@media (max-width: 780px) {
+  .detail-actions {
+    justify-content: flex-start;
+  }
+}
+
+.eulogies-page,
+.eulogy-detail,
+.create-page {
+  font-size: 0.94rem;
+  min-height: 68vh;
+  padding: clamp(30px, 4vw, 44px) clamp(18px, 5vw, 58px) clamp(44px, 5vw, 60px);
+}
+
+.eulogy-detail,
+.create-page {
+  background: #fbf7ef;
+}
+
+.create-intro,
+.detail-layout {
+  max-width: 960px;
+}
+
+.eulogies-hero h1,
+.create-intro h1,
+.detail-copy h1,
+.detail-empty h1 {
+  font-size: clamp(1.65rem, 3vw, 2.7rem);
+  line-height: 1.08;
+}
+
+.eulogies-hero p,
+.create-intro p,
+.summary-line,
+.story-body p {
+  line-height: 1.55;
+}
+
+.primary-link,
+.eulogy-form button,
+.back-link {
+  min-height: 38px;
+  padding: 0 16px;
+}
+
+.detail-layout {
+  gap: clamp(24px, 4vw, 36px);
+  grid-template-columns: minmax(180px, 280px) minmax(0, 1fr);
+}
+
+.detail-copy {
+  padding: clamp(22px, 4vw, 30px);
+}
+
+.detail-photo {
+  border-radius: 999px;
+  max-width: 280px;
+  position: sticky;
+  width: 100%;
+}
+
+.eulogy-form {
+  gap: 14px;
+  max-width: 660px;
+  padding: clamp(22px, 4vw, 26px);
+}
+
+.eulogy-form input:not([type="file"]),
+.eulogy-form select,
+.eulogy-form textarea,
+.inline-eulogy-form input:not([type="file"]),
+.inline-eulogy-form textarea {
+  padding: 10px 12px;
+}
+
+.shared-eulogies {
+  margin-top: 24px;
+  padding-top: 22px;
+}
+
+.shared-eulogies h2,
+.photo-gallery h2 {
+  font-size: 1.45rem;
+}
+
+.eulogy-entry {
+  padding: 16px;
+}
+
+.eulogies-page {
+  background: #fbf7ef;
+  color: #1f2f28;
+  padding-left: clamp(70px, 8vw, 104px);
+}
+
+.eulogies-page::before {
+  opacity: 0.9;
+}
+
+.eulogies-page .eulogies-hero {
+  max-width: 980px;
+  margin-bottom: 24px;
+}
+
+.eulogies-flower {
+  width: clamp(135px, 17vw, 220px);
+}
+
+.eulogies-cta-strip {
+  min-height: 68px;
+  padding: 14px 22px 14px clamp(56px, 7vw, 100px);
+}
+
+.eulogies-cta-strip p {
+  font-size: 0.95rem;
+}
+
+.eulogies-page .eulogies-toolbar {
+  margin-bottom: 28px;
+  max-width: 980px;
+}
+
+.eulogies-page .eulogies-toolbar input {
+  background: white;
+  border: 1px solid rgba(46, 74, 61, 0.14);
+  min-height: 38px;
+  width: min(430px, 100%);
+}
+
+.eulogies-page .eulogies-toolbar span,
+.eulogies-page .page-note {
+  color: rgba(31, 47, 40, 0.68);
+}
+
+.eulogy-list {
+  gap: clamp(24px, 4vw, 42px);
+  max-width: 980px;
+}
+
+.eulogy-row {
+  gap: clamp(18px, 3vw, 28px);
+  grid-template-columns: minmax(120px, 185px) minmax(0, 1fr);
+}
+
+.eulogies-page .eulogy-photo {
+  border-radius: 999px;
+}
+
+.eulogies-page .eulogy-photo span {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.eulogy-lines {
+  gap: clamp(10px, 1.6vw, 16px);
+}
+
+.eulogy-line {
+  min-height: 32px;
+  padding: 7px 18px;
+}
+
+.eulogy-title-line strong {
+  font-size: clamp(1rem, 1.5vw, 1.22rem);
+}
+
+.eulogy-title-line span,
+.eulogy-meta-line span {
+  font-size: 0.86rem;
+}
+
+.share-link-button {
+  min-height: 30px;
+  padding: 0 12px;
+}
+
+@media (max-width: 780px) {
+  .eulogies-page,
+  .eulogy-detail,
+  .create-page {
+    padding-bottom: 42px;
+  }
+
+  .eulogies-page {
+    padding-left: 58px;
+  }
+
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-photo {
+    max-width: 220px;
+    position: static;
+  }
+
+  .eulogies-page .eulogies-hero {
+    margin-bottom: 20px;
+  }
+
+  .eulogies-cta-strip {
+    padding: 60px 18px 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .eulogies-page {
+    padding-left: 52px;
+  }
+
+  .eulogy-row {
+    grid-template-columns: 1fr;
+  }
+
+  .eulogies-page .eulogy-photo {
+    width: min(180px, 72vw);
+  }
+}
+
+.eulogies-page,
+.eulogy-detail,
+.create-page,
+.content-page {
+  background: #fbf7ef;
+  color: #1f2f28;
+  font-family: Roboto, Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.eulogy-detail,
+.create-page,
+.content-page {
+  padding: 32px clamp(18px, 4vw, 56px) 48px;
+}
+
+.content-page {
+  min-height: 68vh;
+}
+
+.content-panel,
+.content-grid,
+.create-intro,
+.detail-layout {
+  max-width: 1040px;
+  width: 100%;
+}
+
+.content-panel,
+.create-intro {
+  background: white;
+  border: 1px solid rgba(46, 74, 61, 0.1);
+  border-radius: 8px;
+  margin: 0 auto 18px;
+  padding: 24px;
+}
+
+.section-kicker {
+  color: #b28a58;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.content-panel h1,
+.create-intro h1,
+.detail-copy h1,
+.detail-empty h1 {
+  color: #1f2f28;
+  font-family: Roboto, Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(1.45rem, 2.4vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.15;
+  margin: 8px 0;
+}
+
+.content-panel p,
+.create-intro p,
+.summary-line,
+.story-body p,
+.content-grid p,
+.eulogy-card p {
+  color: rgba(31, 47, 40, 0.76);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.content-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.primary-link,
+.secondary-link,
+.eulogy-form button,
+.back-link,
+.inline-eulogy-form button[type="submit"] {
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-height: 36px;
+  padding: 0 14px;
+}
+
+.secondary-link {
+  align-items: center;
+  background: #f3e8d6;
+  color: #2e4a3d;
+  display: inline-flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.secondary-link:hover {
+  background: #e8dac4;
+}
+
+.content-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 auto;
+}
+
+.content-grid article,
+.eulogy-form,
+.detail-layout {
+  background: white;
+  border: 1px solid rgba(46, 74, 61, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 8px 22px rgba(31, 47, 40, 0.06);
+}
+
+.content-grid article {
+  padding: 18px;
+}
+
+.content-grid h2,
+.shared-eulogies h2,
+.photo-gallery h2 {
+  color: #1f2f28;
+  font-family: Roboto, Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.content-grid p {
+  margin: 0;
+}
+
+.eulogy-form {
+  gap: 12px;
+  max-width: 680px;
+  padding: 22px;
+}
+
+.eulogy-form label,
+.inline-eulogy-form label {
+  color: #2e4a3d;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.eulogy-form input:not([type="file"]),
+.eulogy-form select,
+.eulogy-form textarea,
+.inline-eulogy-form input:not([type="file"]),
+.inline-eulogy-form textarea {
+  border-radius: 6px;
+  font-size: 0.92rem;
+  min-height: 38px;
+  padding: 9px 11px;
+}
+
+.detail-layout {
+  align-items: start;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 170px minmax(0, 1fr);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.detail-photo {
+  aspect-ratio: 1;
+  border: 6px solid #f3e8d6;
+  border-radius: 0%;
+  box-shadow: none;
+  max-width: 170px;
+  position: static;
+  top: auto;
+}
+
+.detail-photo span {
+  font-family: Roboto, Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.detail-copy {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+
+.detail-header-actions {
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.detail-actions {
+  gap: 8px;
+}
+
+.lifespan {
+  font-size: 0.92rem;
+  margin: 4px 0 10px;
+}
+
+.shared-eulogies {
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.eulogy-entry {
+  background: #fbf7ef;
+  border: 1px solid rgba(46, 74, 61, 0.1);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 16px;
+}
+
+.eulogy-entry > div:first-child {
+  margin-bottom: 8px;
+}
+
+.eulogy-entry strong,
+.eulogy-entry span {
+  font-weight: 600;
+}
+
+.eulogy-entry span {
+  font-size: 0.82rem;
+}
+
+.inline-eulogy-form {
+  gap: 12px;
+  padding: 16px;
+}
+
+.photo-grid {
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+}
+
+.eulogies-page {
+  padding: 30px clamp(18px, 5vw, 56px) 48px clamp(68px, 7vw, 92px);
+}
+
+.eulogies-page .eulogies-hero,
+.eulogies-page .eulogies-toolbar,
+.eulogy-list {
+  max-width: 1040px;
+}
+
+.eulogies-page .eulogies-hero {
+  margin-bottom: 20px;
+}
+
+.eulogies-flower {
+  width: clamp(120px, 15vw, 190px);
+}
+
+.eulogies-cta-strip {
+  border: 1px solid rgba(46, 74, 61, 0.08);
+  min-height: 62px;
+  padding: 12px 18px 12px clamp(50px, 6vw, 86px);
+}
+
+.eulogies-cta-strip p {
+  font-size: 0.9rem;
+}
+
+.eulogies-page .eulogies-toolbar {
+  margin-bottom: 24px;
+}
+
+.eulogies-page .eulogies-toolbar input {
+  font-size: 0.92rem;
+  min-height: 36px;
+}
+
+.eulogy-list {
+  gap: 22px;
+}
+
+.eulogy-row {
+  gap: 22px;
+  grid-template-columns: 128px minmax(0, 1fr);
+}
+
+.eulogies-page .eulogy-photo {
+  border: 4px solid #f3e8d6;
+  width: 128px;
+}
+
+.eulogies-page .eulogy-photo span {
+  font-size: 2.8rem;
+  font-weight: 500;
+}
+
+.eulogy-lines {
+  gap: 9px;
+}
+
+.eulogy-line {
+  border-radius: 8px;
+  font-size: 0.9rem;
+  min-height: 32px;
+  padding: 8px 14px;
+}
+
+.eulogy-title-line strong {
+  font-family: Roboto, Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.eulogy-title-line span,
+.eulogy-meta-line span {
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.share-link-button {
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+@media (max-width: 780px) {
+  .eulogy-detail,
+  .create-page,
+  .content-page {
+    padding: 24px 18px 38px;
+  }
+
+  .content-panel,
+  .create-intro,
+  .eulogy-form,
+  .detail-layout {
+    padding: 18px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-photo {
+    max-width: 132px;
+  }
+
+  .detail-header-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .eulogies-page {
+    padding: 24px 16px 38px 56px;
+  }
+
+  .eulogies-cta-strip {
+    padding: 56px 16px 16px;
+  }
+
+  .eulogy-row {
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+
+  .eulogies-page .eulogy-photo {
+    width: 96px;
+  }
+
+  .eulogy-line {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .eulogy-row {
+    grid-template-columns: 1fr;
+  }
+
+  .eulogies-page .eulogy-photo {
+    width: 118px;
+  }
+
+  .eulogy-title-line,
+  .eulogy-meta-line {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.eulogies-page {
+  padding-left: clamp(58px, 6vw, 76px);
+}
+
+.eulogies-page .eulogies-hero,
+.eulogies-page .eulogies-toolbar,
+.eulogy-list {
+  margin-left: 0;
+  margin-right: auto;
+  max-width: 1000px;
+}
+
+.eulogies-page .eulogies-toolbar {
+  width: min(100%, 1000px);
+}
+
+.eulogy-row {
+  gap: 18px;
+  grid-template-columns: 112px minmax(0, 1fr);
+}
+
+.eulogies-page .eulogy-photo {
+  width: 112px;
+}
+
+.eulogy-line {
+  border-radius: 999px;
+  padding: 8px 18px;
+}
+
+@media (max-width: 780px) {
+  .eulogies-page {
+    padding-left: 52px;
+  }
+
+  .eulogy-row {
+    gap: 14px;
+    grid-template-columns: 88px minmax(0, 1fr);
+  }
+
+  .eulogies-page .eulogy-photo {
+    width: 88px;
+  }
+
+  .eulogy-line {
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .eulogy-row {
+    grid-template-columns: 1fr;
+  }
+
+  .eulogies-page .eulogy-photo {
+    width: 108px;
+  }
+}
+
+.create-page .eulogy-form input[type="file"],
+.eulogy-detail .inline-eulogy-form input[type="file"] {
+  background: white;
+  border: 1px solid rgba(46, 74, 61, 0.18);
+  border-radius: 6px;
+  color: rgba(31, 47, 40, 0.78);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 8px;
+}
+
+.create-page .eulogy-form input[type="file"]::file-selector-button,
+.eulogy-detail .inline-eulogy-form input[type="file"]::file-selector-button {
+  background: #2e4a3d;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  margin-right: 12px;
+  min-height: 30px;
+  padding: 0 12px;
+  transition: 0.2s ease-in-out;
+}
+
+.create-page .eulogy-form input[type="file"]::file-selector-button:hover,
+.eulogy-detail .inline-eulogy-form input[type="file"]::file-selector-button:hover {
+  background: #b28a58;
+}
+
+.delete-link-button {
+  align-items: center;
+  background: #fff1eb;
+  border: 1px solid rgba(138, 45, 34, 0.24);
+  border-radius: 6px;
+  color: #8a2d22;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  transition: 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.delete-link-button:hover:not(:disabled) {
+  background: #8a2d22;
+  color: white;
+}
+
+.delete-link-button:disabled {
+  cursor: wait;
+  opacity: 0.66;
+}
+
+.eulogy-entry > .eulogy-entry-header {
+  align-items: flex-start;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.eulogy-entry > .eulogy-entry-header > div {
+  display: grid;
+  gap: 3px;
+}
+
+.eulogy-delete-button {
+  min-height: 30px;
+}
+
+@media (max-width: 560px) {
+  .eulogy-entry-header {
+    flex-direction: column;
+  }
+}
+
+.eulogy-lines {
+  gap: 6px;
+}
+
+.eulogy-line {
+  border-radius: 999px;
+  font-size: 0.84rem;
+  min-height: 26px;
+  padding: 4px 14px;
+}
+
+.eulogy-title-line strong {
+  font-size: 0.92rem;
+}
+
+.eulogy-title-line span,
+.eulogy-meta-line span {
+  font-size: 0.78rem;
+}
+
+.share-link-button {
+  font-size: 0.78rem;
+  min-height: 24px;
+  padding: 0 10px;
+}
+
+@media (max-width: 780px) {
+  .eulogy-line {
+    border-radius: 4px;
+    min-height: 28px;
+    padding: 5px 14px;
+  }
+
+  .eulogy-title-line,
+  .eulogy-meta-line {
+    gap: 8px;
+  }
+
+  .eulogy-detail {
+    overflow-x: hidden;
+  }
+
+  .detail-copy h1 {
+    font-size: clamp(1.45rem, 8vw, 2rem);
+  }
+
+  .detail-actions {
+    width: 100%;
+  }
+
+  .detail-actions button,
+  .detail-actions a,
+  .delete-link-button {
+    white-space: normal;
+  }
+}
+
+.delete-confirmation-backdrop {
+  align-items: center;
+  background: rgba(12, 18, 15, 0.52);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 18px;
+  position: fixed;
+  z-index: 30;
+}
+
+.delete-confirmation {
+  background: white;
+  border: 1px solid rgba(46, 74, 61, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 22px 70px rgba(12, 18, 15, 0.25);
+  color: #1f2f28;
+  max-width: 420px;
+  padding: 22px;
+  width: min(100%, 420px);
+}
+
+.delete-confirmation h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.delete-confirmation p {
+  color: rgba(31, 47, 40, 0.74);
+  line-height: 1.55;
+  margin: 0 0 18px;
+}
+
+.delete-confirmation > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.donation-fields {
+  background: #fbf7ef;
+  border: 1px solid rgba(46, 74, 61, 0.12);
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  margin: 2px 0;
+  padding: 16px;
+}
+
+.donation-fields legend {
+  color: #2e4a3d;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0 6px;
+}
+
+.donation-fields > p {
+  color: rgba(31, 47, 40, 0.68);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.donation-gif-button {
+  align-items: center;
+  background: #fff8eb;
+  border: 1px solid rgba(178, 138, 88, 0.28);
+  border-radius: 999px;
+  color: #2e4a3d;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  gap: 7px;
+  min-height: 34px;
+  padding: 3px 12px 3px 6px;
+  transition: 0.2s ease-in-out;
+}
+
+.donation-gif-button:hover,
+.donation-gif-button[aria-expanded="true"] {
+  background: #2e4a3d;
+  color: white;
+}
+
+.donation-gif-button img {
+  border-radius: 999px;
+  height: 28px;
+  object-fit: cover;
+  width: 28px;
+}
+
+.donation-details-panel {
+  background: linear-gradient(135deg, #fffaf0, #f4ead8);
+  border: 1px solid rgba(178, 138, 88, 0.24);
+  border-radius: 8px;
+  display: grid;
+  gap: 14px;
+  margin: 18px 0 6px;
+  padding: 18px;
+}
+
+.donation-details-panel h2 {
+  color: #1f2f28;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 4px 0 0;
+}
+
+.donation-method-list {
+  display: grid;
+  gap: 10px;
+}
+
+.donation-method {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(46, 74, 61, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.donation-method strong {
+  color: #2e4a3d;
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.donation-method p {
+  color: rgba(31, 47, 40, 0.78);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.detail-side {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.detail-action-stack {
+  align-items: flex-end;
+  display: grid;
+  gap: 7px;
+  justify-items: end;
+}
+
+.detail-action-stack .donation-gif-button {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: #2e4a3d;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0;
+}
+
+.detail-action-stack .donation-gif-button:hover,
+.detail-action-stack .donation-gif-button[aria-expanded="true"] {
+  background: transparent;
+  color: #b28a58;
+}
+
+.detail-action-stack .donation-gif-button img {
+  border-radius: 0;
+  height: 34px;
+  width: 34px;
+}
+
+.detail-action-stack .donation-gif-button span {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.eulogy-detail,
+.detail-layout,
+.detail-side,
+.detail-copy,
+.detail-header-actions,
+.detail-actions,
+.detail-action-stack,
+.shared-eulogies,
+.eulogy-entry,
+.eulogy-entry-header,
+.story-body,
+.donation-details-panel,
+.donation-method,
+.photo-gallery {
+  min-width: 0;
+}
+
+.detail-copy h1,
+.lifespan,
+.summary-line,
+.story-body p,
+.donation-method strong,
+.donation-method p,
+.donation-empty-note,
+.eulogy-entry strong,
+.eulogy-entry span,
+.form-error {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.detail-actions > *,
+.detail-action-stack .donation-gif-button {
+  max-width: 100%;
+}
+
+.gallery-photo-wrap {
+  position: relative;
+}
+
+.gallery-photo-wrap .gallery-photo {
+  width: 100%;
+}
+
+.photo-delete-button {
+  background: rgba(255, 241, 235, 0.95);
+  border: 1px solid rgba(138, 45, 34, 0.24);
+  border-radius: 999px;
+  color: #8a2d22;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 600;
+  min-height: 26px;
+  padding: 0 10px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  transition: 0.2s ease-in-out;
+}
+
+.photo-delete-button:hover:not(:disabled) {
+  background: #8a2d22;
+  color: white;
+}
+
+.photo-delete-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.donation-empty-note {
+  color: rgba(31, 47, 40, 0.68);
+  margin: 0;
+}
+
+.delete-confirmation {
+  border-radius: 8px;
+  font-family: Roboto, Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 24px;
+  text-align: center;
+}
+
+.delete-confirmation h2 {
+  color: #1f2f28;
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.delete-confirmation p {
+  color: rgba(31, 47, 40, 0.74);
+  font-size: 0.94rem;
+}
+
+.delete-confirmation > div,
+.delete-confirmation-actions {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.delete-confirmation-actions .secondary-link,
+.delete-confirmation-actions .delete-link-button {
+  min-width: 112px;
+}
+
+.creator-account-panel {
+  background: #fbf7ef;
+  border: 1px solid rgba(46, 74, 61, 0.12);
+  border-radius: 8px;
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.creator-account-notice {
+  align-items: center;
+  background: #fbf7ef;
+  border: 1px solid rgba(46, 74, 61, 0.12);
+  border-radius: 8px;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.creator-account-notice h2 {
+  color: #1f2f28;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.creator-account-notice p {
+  color: rgba(31, 47, 40, 0.68);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.auth-page {
+  background:
+    linear-gradient(90deg, rgba(46, 74, 61, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(178, 138, 88, 0.05) 1px, transparent 1px),
+    #fbf7ef;
+  background-size: 34px 34px;
+  font-family: Avenir, "Segoe UI", Roboto, Arial, sans-serif;
+  min-height: calc(100vh - 56px);
+  padding: clamp(30px, 6vw, 74px) clamp(18px, 5vw, 72px);
+}
+
+.auth-card {
+  animation: account-panel-in 0.55s ease both;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(46, 74, 61, 0.14);
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(31, 47, 40, 0.14);
+  display: grid;
+  gap: 0;
+  grid-template-areas: "main visual";
+  grid-template-columns: minmax(300px, 1.04fr) minmax(260px, 0.76fr);
+  margin: 0 auto;
+  max-width: 980px;
+  overflow: hidden;
+}
+
+.auth-card.is-register-mode {
+  grid-template-areas: "visual main";
+  grid-template-columns: minmax(260px, 0.76fr) minmax(300px, 1.04fr);
+}
+
+.auth-main {
+  display: grid;
+  gap: clamp(18px, 3vw, 28px);
+  grid-area: main;
+  padding: clamp(26px, 5vw, 50px);
+}
+
+.auth-card.has-switched-mode.is-register-mode .auth-main {
+  animation: account-main-to-right 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.auth-card.has-switched-mode.is-login-mode .auth-main {
+  animation: account-main-to-left 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.auth-card-copy h1 {
+  color: #1f2f28;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.08;
+  margin: 10px 0 12px;
+}
+
+.auth-card-copy p,
+.account-signed-in p {
+  color: rgba(31, 47, 40, 0.68);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.account-form {
+  animation: account-form-in 0.55s ease 0.12s both;
+  align-self: start;
+  max-width: 420px;
+}
+
+.account-form label {
+  color: #1f2f28;
+  display: grid;
+  font-size: 0.92rem;
+  font-weight: 700;
+  gap: 9px;
+  letter-spacing: 0;
+}
+
+.auth-fields {
+  animation: auth-fields-in 0.3s ease both;
+  display: grid;
+  gap: 17px;
+}
+
+.account-form input {
+  background: #fbf7ef;
+  border-color: rgba(46, 74, 61, 0.14);
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  font-family: inherit;
+  min-height: 46px;
+  padding: 0 15px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.account-form input:focus {
+  border-color: rgba(46, 74, 61, 0.48);
+  box-shadow: 0 0 0 4px rgba(46, 74, 61, 0.1);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.account-signed-in {
+  animation: account-form-in 0.55s ease 0.12s both;
+  align-self: start;
+  background: #f8f3ea;
+  border: 1px solid rgba(46, 74, 61, 0.14);
+  border-radius: 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  padding: 20px;
+}
+
+.account-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.auth-visual {
+  align-content: center;
+  background:
+    linear-gradient(160deg, rgba(46, 74, 61, 0.96), rgba(30, 48, 40, 0.98)),
+    #2e4a3d;
+  color: white;
+  display: grid;
+  gap: 18px;
+  grid-area: visual;
+  justify-items: center;
+  min-height: 520px;
+  padding: clamp(24px, 4vw, 42px);
+  position: relative;
+  text-align: center;
+}
+
+.auth-card.has-switched-mode.is-register-mode .auth-visual {
+  animation: account-visual-to-left 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.auth-card.has-switched-mode.is-login-mode .auth-visual {
+  animation: account-visual-to-right 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.auth-visual::before,
+.auth-visual::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+}
+
+.auth-visual::before {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  inset: 18px;
+}
+
+.auth-visual::after {
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(178, 138, 88, 0.92) 0 10px,
+    transparent 10px 18px
+  );
+  border-radius: 999px;
+  height: 10px;
+  left: 34px;
+  right: 34px;
+  top: 36px;
+}
+
+.auth-logo {
+  animation: account-form-in 0.6s ease 0.18s both;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 8px;
+  padding: 10px;
+  position: relative;
+  width: 96px;
+  z-index: 1;
+}
+
+.auth-candle-frame {
+  animation: account-float 3.8s ease-in-out infinite;
+  background: #fff8eb;
+  border-radius: 8px;
+  box-shadow: 0 0 32px rgba(255, 228, 170, 0.22);
+  display: grid;
+  height: 150px;
+  place-items: center;
+  position: relative;
+  width: 150px;
+  z-index: 1;
+}
+
+.auth-candle-frame img {
+  height: 92px;
+  object-fit: contain;
+  width: 92px;
+}
+
+.auth-visual-copy {
+  animation: account-form-in 0.6s ease 0.28s both;
+  display: grid;
+  gap: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-visual-copy strong {
+  color: #fff8eb;
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.auth-visual-copy span {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.92rem;
+}
+
+.creator-account-panel h2 {
+  color: #1f2f28;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.creator-account-panel p {
+  color: rgba(31, 47, 40, 0.68);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.creator-account-form {
+  display: grid;
+  gap: 12px;
+}
+
+.auth-mode-toggle {
+  background: #f8f3ea;
+  border: 1px solid rgba(46, 74, 61, 0.12);
+  border-radius: 999px;
+  display: inline-grid;
+  gap: 4px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 4px;
+  width: 100%;
+}
+
+.auth-mode-toggle button,
+.creator-account-form > button,
+.creator-account-signed-in button {
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  min-height: 36px;
+  padding: 0 14px;
+}
+
+.auth-mode-toggle button {
+  background: transparent;
+  color: rgba(31, 47, 40, 0.72);
+}
+
+.auth-mode-toggle button.active,
+.creator-account-form > button {
+  background: #2e4a3d;
+  box-shadow: 0 8px 18px rgba(46, 74, 61, 0.18);
+  color: white;
+}
+
+.creator-account-form > button {
+  justify-self: start;
+}
+
+.account-form > button {
+  justify-self: stretch;
+  min-height: 42px;
+  transition: box-shadow 0.22s ease, transform 0.22s ease, background-color 0.22s ease;
+}
+
+.account-form > button:hover:not(:disabled) {
+  background: #b28a58;
+  box-shadow: 0 12px 22px rgba(178, 138, 88, 0.28);
+  transform: translateY(-1px);
+}
+
+.creator-account-form > button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.creator-account-signed-in {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.creator-account-signed-in span {
+  color: #2e4a3d;
+  font-weight: 600;
+}
+
+.creator-account-signed-in button {
+  background: #f3e8d6;
+  color: #2e4a3d;
+}
+
+@keyframes account-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes account-form-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes auth-fields-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes account-main-to-right {
+  from {
+    opacity: 0.88;
+    transform: translateX(-38%) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes account-main-to-left {
+  from {
+    opacity: 0.88;
+    transform: translateX(38%) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes account-visual-to-left {
+  from {
+    opacity: 0.92;
+    transform: translateX(44%) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes account-visual-to-right {
+  from {
+    opacity: 0.92;
+    transform: translateX(-44%) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes account-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 780px) {
+  .detail-action-stack {
+    align-items: flex-start;
+    justify-items: start;
+  }
+
+  .creator-account-notice,
+  .auth-card {
+    grid-template-areas:
+      "visual"
+      "main";
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card.is-register-mode {
+    grid-template-areas:
+      "visual"
+      "main";
+    grid-template-columns: 1fr;
+  }
+
+  .auth-main {
+    padding: 26px;
+  }
+
+  .auth-visual {
+    min-height: 280px;
+    order: -1;
+  }
+
+  .creator-account-notice {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-card,
+  .account-form,
+  .auth-fields,
+  .account-signed-in,
+  .auth-main,
+  .auth-logo,
+  .auth-candle-frame,
+  .auth-visual,
+  .auth-visual-copy {
+    animation: none;
+  }
+}

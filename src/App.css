@@ -1,0 +1,40 @@
+*{
+    scrollbar-width: thin;
+    scrollbar-color:  #234a3e black ;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fbf7ef;
+    margin: 0%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.home-page {
+    overflow: hidden;
+}
+
+.home-animate {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.home-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-animate {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
