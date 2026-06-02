@@ -33,8 +33,8 @@ function withoutDeletedMemorials(memorials) {
   return memorials.filter((memorial) => !deletedIds.has(memorial.id));
 }
 
-export function canManageMemorial(memorial) {
-  return isMemorialCreator(memorial);
+export function canManageMemorial(memorial, creator) {
+  return isMemorialCreator(memorial, creator);
 }
 
 const starterMemorials = [

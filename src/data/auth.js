@@ -72,7 +72,7 @@ if (isSupabaseConfigured && supabase) {
   });
 }
 
-export async function syncAuthSession() {
+export async function syncAuthSession({ forceRefresh = false } = {}) {
   if (!isSupabaseConfigured || !supabase) return readSession();
 
   const { data, error } = await supabase.auth.getSession();
@@ -81,7 +81,16 @@ export async function syncAuthSession() {
     return null;
   }
 
-  return saveSupabaseSession(data.session);
+  if (!forceRefresh) {
+    return saveSupabaseSession(data.session);
+  }
+
+  const { data: refreshedData, error: refreshError } = await supabase.auth.refreshSession(data.session);
+  if (refreshError || !refreshedData.session) {
+    return saveSupabaseSession(data.session);
+  }
+
+  return saveSupabaseSession(refreshedData.session);
 }
 
 export function getAuthSession() {
@@ -97,8 +106,7 @@ export function authHeaders() {
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
-export function isMemorialCreator(memorial) {
-  const creator = getCurrentCreator();
+export function isMemorialCreator(memorial, creator = getCurrentCreator()) {
   return Boolean(creator?.role === 'admin' || (creator?.id && memorial?.creator_account_id === creator.id));
 }
 

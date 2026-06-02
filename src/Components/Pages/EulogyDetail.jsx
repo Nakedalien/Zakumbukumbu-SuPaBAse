@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import Footer from '../Footer';
 import './Eulogies.css';
 import { canManageMemorial, createEulogy, deleteEulogyEntry, deleteMemorial, deleteMemorialPhoto, getMemorialBySlug } from '../../data/eulogies';
+import { getAuthSession, syncAuthSession } from '../../data/auth';
 import sendIcon from '../../assets/send.png';
 import donationCandle from '../../assets/candle.gif';
 import { shareMemorial } from '../shareMemorial';
@@ -22,6 +23,7 @@ function EulogyDetail() {
   const [deleteStatus, setDeleteStatus] = useState('idle');
   const [deleteError, setDeleteError] = useState('');
   const [pendingDelete, setPendingDelete] = useState(null);
+  const [authSession, setAuthSession] = useState(() => getAuthSession());
   const [showDonationDetails, setShowDonationDetails] = useState(false);
   const feedbackTimer = useRef(null);
 
@@ -48,6 +50,27 @@ function EulogyDetail() {
       mounted = false;
     };
   }, [slug]);
+
+  useEffect(() => {
+    let mounted = true;
+
+    syncAuthSession({ forceRefresh: true }).then((session) => {
+      if (mounted) setAuthSession(session);
+    });
+
+    function refreshSession() {
+      setAuthSession(getAuthSession());
+    }
+
+    window.addEventListener('zakumbukumbu-auth-change', refreshSession);
+    window.addEventListener('storage', refreshSession);
+
+    return () => {
+      mounted = false;
+      window.removeEventListener('zakumbukumbu-auth-change', refreshSession);
+      window.removeEventListener('storage', refreshSession);
+    };
+  }, []);
 
   useEffect(() => () => {
     if (feedbackTimer.current) {
@@ -176,13 +199,13 @@ function EulogyDetail() {
       ));
       setPendingDelete(null);
       setDeleteStatus('idle');
-    } catch {
+    } catch (error) {
       setDeleteError(
-        pendingDelete.type === 'memorial'
+        error.message || (pendingDelete.type === 'memorial'
           ? 'The memorial could not be deleted. Please try again.'
           : pendingDelete.type === 'photo'
             ? 'The photo could not be deleted. Please try again.'
-            : 'The eulogy could not be deleted. Please try again.',
+            : 'The eulogy could not be deleted. Please try again.'),
       );
       setDeleteStatus('idle');
     }
@@ -215,7 +238,7 @@ function EulogyDetail() {
     { label: 'Bank', value: memorial.donation_bank },
     { label: 'PayPal', value: memorial.donation_paypal },
   ].filter((method) => method.value?.trim());
-  const canManage = canManageMemorial(memorial);
+  const canManage = canManageMemorial(memorial, authSession?.user);
 
   return (
     <>
