@@ -46,6 +46,17 @@ create index if not exists memorials_creator_account_id_idx on public.memorials 
 create index if not exists eulogy_entries_memorial_id_idx on public.eulogy_entries (memorial_id, created_at desc);
 create index if not exists memorial_photos_memorial_id_idx on public.memorial_photos (memorial_id, position);
 
+grant usage on schema public to anon, authenticated;
+
+grant select on public.memorials to anon, authenticated;
+grant insert, update, delete on public.memorials to authenticated;
+
+grant select, insert on public.eulogy_entries to anon, authenticated;
+grant delete on public.eulogy_entries to authenticated;
+
+grant select, insert on public.memorial_photos to anon, authenticated;
+grant delete on public.memorial_photos to authenticated;
+
 alter table public.memorials enable row level security;
 alter table public.eulogy_entries enable row level security;
 alter table public.memorial_photos enable row level security;
@@ -92,6 +103,8 @@ set search_path = ''
 as $$
   select coalesce(auth.jwt() -> 'app_metadata' ->> 'role', '') = 'admin';
 $$;
+
+grant execute on function public.is_admin() to authenticated;
 
 create policy "Published memorials are public"
 on public.memorials
