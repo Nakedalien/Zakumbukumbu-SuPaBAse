@@ -84,6 +84,15 @@ drop policy if exists "Anyone can view eulogy photo files" on storage.objects;
 drop policy if exists "Visitors can upload eulogy photo files" on storage.objects;
 drop policy if exists "Memorial creators can delete eulogy photo files" on storage.objects;
 
+create or replace function public.is_admin()
+returns boolean
+language sql
+stable
+set search_path = ''
+as $$
+  select coalesce(auth.jwt() -> 'app_metadata' ->> 'role', '') = 'admin';
+$$;
+
 create policy "Published memorials are public"
 on public.memorials
 for select
@@ -104,11 +113,11 @@ for update
 to authenticated
 using (
   creator_account_id = auth.uid()
-  or coalesce(auth.jwt() -> 'user_metadata' ->> 'role', '') = 'admin'
+  or public.is_admin()
 )
 with check (
   creator_account_id = auth.uid()
-  or coalesce(auth.jwt() -> 'user_metadata' ->> 'role', '') = 'admin'
+  or public.is_admin()
 );
 
 create policy "Creators can delete their memorials"
@@ -117,7 +126,7 @@ for delete
 to authenticated
 using (
   creator_account_id = auth.uid()
-  or coalesce(auth.jwt() -> 'user_metadata' ->> 'role', '') = 'admin'
+  or public.is_admin()
 );
 
 create policy "Published eulogy entries are public"
@@ -158,7 +167,7 @@ using (
     where memorials.id = eulogy_entries.memorial_id
       and (
         memorials.creator_account_id = auth.uid()
-        or coalesce(auth.jwt() -> 'user_metadata' ->> 'role', '') = 'admin'
+        or public.is_admin()
       )
   )
 );
@@ -199,7 +208,7 @@ using (
     where memorials.id = memorial_photos.memorial_id
       and (
         memorials.creator_account_id = auth.uid()
-        or coalesce(auth.jwt() -> 'user_metadata' ->> 'role', '') = 'admin'
+        or public.is_admin()
       )
   )
 );
@@ -227,7 +236,7 @@ using (
     where memorials.slug = (storage.foldername(name))[1]
       and (
         memorials.creator_account_id = auth.uid()
-        or coalesce(auth.jwt() -> 'user_metadata' ->> 'role', '') = 'admin'
+        or public.is_admin()
       )
   )
 );

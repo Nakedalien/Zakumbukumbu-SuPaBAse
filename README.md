@@ -42,7 +42,7 @@ Frontend: `http://localhost:5173`
 - `supabase/eulogies.sql` creates the database tables, Row Level Security policies, and the public `eulogy-photos` bucket.
 - New memorials require a logged-in creator account.
 - Guests can add extra eulogies and photos to an existing published memorial.
-- Only the memorial creator, or a user with `role: admin` in Supabase Auth user metadata, can delete a memorial, eulogy entry, or photo metadata.
+- Only the memorial creator, or a user with `role: admin` in Supabase Auth app metadata, can delete a memorial, eulogy entry, or photo metadata. Use app metadata for admin roles because end users can edit their own user metadata.
 
 ## Build
 

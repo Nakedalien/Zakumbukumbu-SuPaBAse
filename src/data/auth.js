@@ -35,7 +35,7 @@ function publicUser(user, session) {
   if (!user) return null;
 
   const name = user.user_metadata?.name || user.email?.split('@')[0] || 'Creator';
-  const role = user.user_metadata?.role || 'creator';
+  const role = user.app_metadata?.role === 'admin' ? 'admin' : 'creator';
 
   return {
     token: session?.access_token || '',
@@ -113,7 +113,6 @@ export async function registerCreatorAccount(input) {
     options: {
       data: {
         name: input.name,
-        role: 'creator',
       },
     },
   });

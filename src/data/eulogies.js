@@ -1,4 +1,4 @@
-﻿import { authHeaders, getCurrentCreator, isMemorialCreator } from './auth';
+﻿import { authHeaders, isMemorialCreator } from './auth';
 import { getSupabaseConfig, isSupabaseConfigured, supabase, supabasePhotoBucket } from './supabaseClient';
 
 const memorialStorageKey = 'zakumbukumbu:memorials:v2';
@@ -225,7 +225,16 @@ async function requestSupabase(path, options = {}) {
 
   if (!response.ok) {
     const message = await response.text();
-    throw new Error(message || 'Database request failed.');
+    let errorMessage = message || 'Database request failed.';
+
+    try {
+      const parsed = JSON.parse(message);
+      errorMessage = parsed.message || parsed.error_description || errorMessage;
+    } catch {
+      // Supabase usually returns JSON errors, but keep plain text if it does not.
+    }
+
+    throw new Error(errorMessage);
   }
 
   if (response.status === 204) {
@@ -472,14 +481,20 @@ export async function createEulogy(input) {
     }
 
     const slug = makeSlug(input.full_name);
-    const creator = getCurrentCreator();
+    const { data: authData } = await supabase.auth.getSession();
+    const creatorId = authData.session?.user?.id;
+
+    if (!creatorId) {
+      throw new Error('Please log in or create a creator account before creating a new memorial.');
+    }
+
     const uploadedPhotos = await Promise.all(getNewMemorialPhotoFiles(input).map((file, index) => uploadPhotoFile(file, slug, index)));
     const memorialRows = await requestSupabase('memorials', {
       method: 'POST',
       body: JSON.stringify({
         full_name: input.full_name.trim(),
         slug,
-        creator_account_id: creator?.id || null,
+        creator_account_id: creatorId,
         born_on: input.born_on || null,
         died_on: input.died_on || null,
         image_url: uploadedPhotos[0]?.image_url || '',

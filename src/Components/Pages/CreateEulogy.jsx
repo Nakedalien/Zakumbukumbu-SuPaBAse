@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import Footer from '../Footer';
 import './Eulogies.css';
 import { createEulogy, getMemorials } from '../../data/eulogies';
-import { getAuthSession } from '../../data/auth';
+import { getAuthSession, syncAuthSession } from '../../data/auth';
 
 const initialForm = {
   memorial_id: 'new',
@@ -31,6 +31,11 @@ function CreateEulogy() {
 
   useEffect(() => {
     let mounted = true;
+
+    syncAuthSession().then((session) => {
+      if (mounted) setAuthSession(session);
+    });
+
     getMemorials()
       .then((items) => {
         if (!mounted) return;
@@ -89,7 +94,13 @@ function CreateEulogy() {
     setStatus('saving');
     setError('');
 
-    if (isNewMemorial && !authSession) {
+    const activeSession = isNewMemorial ? await syncAuthSession() : authSession;
+
+    if (isNewMemorial) {
+      setAuthSession(activeSession);
+    }
+
+    if (isNewMemorial && !activeSession) {
       setError('Please log in or create a creator account before creating a new memorial.');
       setStatus('idle');
       return;
@@ -102,8 +113,8 @@ function CreateEulogy() {
         gallery_photos: galleryPhotos,
       });
       navigate(`/Eulogies/${saved.slug}`);
-    } catch {
-      setError('The eulogy could not be saved. Please check the details and try again.');
+    } catch (saveError) {
+      setError(saveError.message || 'The eulogy could not be saved. Please check the details and try again.');
       setStatus('idle');
     }
   }
